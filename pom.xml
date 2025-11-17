@@ -14,8 +14,10 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>17</maven.compiler.source>
-    <maven.compiler.target>17</maven.compiler.target>
+    <!-- Target Java LTS 21 -->
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
+    <maven.compiler.release>21</maven.compiler.release>
   </properties>
 
   <dependencies>
@@ -42,7 +44,8 @@
         </plugin>
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.8.0</version>
+          <!-- use a recent compiler plugin that recognizes Java 21 -->
+          <version>3.11.0</version>
         </plugin>
         <plugin>
         <groupId>org.apache.maven.plugins</groupId>
