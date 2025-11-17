@@ -10,10 +10,12 @@ public class Question implements Questionable{
     private Map<String,String> options;
     private boolean reuse;
 
+    @Override
     public String getQuestionText(){
         return this.questionText;
     }
 
+    @Override
     public int getPrice(){
         return this.price;
     }
@@ -31,6 +33,15 @@ public class Question implements Questionable{
     @Override
     public boolean isUsed() {
         throw new UnsupportedOperationException("Unimplemented method 'isUsed'");
+    }
+
+    @Override
+    public String checkCorrect(String answer) {
+        if(this.answer == answer){
+            return answer;
+        } else {
+            return "Incorrect Answer";
+        }
     }
     
 }
