@@ -65,4 +65,8 @@ public class Question implements Questionable {
             return "Incorrect. Correct answer: " + this.answer;
         }
     }
+
+    void setValue(int value) {
+        this.price = value;
+    }
 }

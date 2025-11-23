@@ -5,7 +5,7 @@ public class Category implements Categoryable {
 
     
     private String category;
-    private ArrayList<Question> questions;
+    private ArrayList<Question> questions = new ArrayList<>();
 
     public Category(String category) {
         this.category = category;
@@ -21,8 +21,8 @@ public class Category implements Categoryable {
         return this.questions;
     }
 
-    void addQuestion(Question q) {
-        throw new UnsupportedOperationException("Not supported yet.");
+     public void addQuestion(Question q) {
+        this.questions.add(q);
     }
 
 }
