@@ -4,6 +4,9 @@ import java.util.Map;
 
 public class Question implements Questionable{
 
+    public Question(String q, String a) {
+    }
+
     private String questionText;
     private String answer;
     private int price;
