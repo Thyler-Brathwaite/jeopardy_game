@@ -5,10 +5,10 @@ import java.util.Map;
 
 public class Question implements Questionable {
 
-    private String questionText;
-    private String answer;
+    private final String questionText;
+    private final String answer;
     private int price;
-    private Map<String, String> options = new HashMap<>();
+    private final Map<String, String> options = new HashMap<>();
     private boolean reuse = false;
 
    
@@ -21,7 +21,7 @@ public class Question implements Questionable {
     public void setPrice(int price) {
         this.price = price;
     }
-
+    @Override
     public void addOption(String key, String value) {
         this.options.put(key, value);
     }
@@ -63,8 +63,5 @@ public class Question implements Questionable {
             return "Incorrect. Correct answer: " + this.answer;
         }
     }
-
-    void setValue(int value) {
-        this.price = value;
-    }
+      
 }

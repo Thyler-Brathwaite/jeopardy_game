@@ -2,23 +2,23 @@ package comp3607.asg;
 
 public class Score {
 
-    private int Score;
+    private int amt;
 
     public Score() {
-        this.Score = 0;
+        this.amt = 0;
     }
 
     public int getScore() {
-        return this.Score;
+        return this.amt;
     }
 
     public void AddScore(int s) {
-        this.Score += s;
+        this.amt += s;
     }
 
     public void LoseScore(int s) {
         
-        this.Score -= s;
-        if (this.Score < 0) this.Score = 0; 
+        this.amt -= s;
+        if (this.amt < 0) this.amt = 0; 
     }
 }

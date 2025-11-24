@@ -7,5 +7,11 @@ public interface Categoryable {
     public String getCategory();
 
     public ArrayList<Question> getQuestions();
+
+    public void addQuestion(Question q);
+
+    public Question findQuestion(int price);
     
+    public void removeQuestion(Question q);
+   
 }

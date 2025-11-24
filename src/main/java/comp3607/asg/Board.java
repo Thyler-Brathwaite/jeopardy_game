@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Board {
 
-    private ArrayList<Category> categories = new ArrayList<>();
+    private final ArrayList<Category> categories = new ArrayList<>();
 
     public void addCategory(Category c) {
         categories.add(c);
