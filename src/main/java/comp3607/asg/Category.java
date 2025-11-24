@@ -12,7 +12,6 @@ public class Category implements Categoryable {
     }
 
 
-
     public String getCategory(){
         return this.category;
     }

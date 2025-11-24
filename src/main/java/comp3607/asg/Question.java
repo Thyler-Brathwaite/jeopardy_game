@@ -17,12 +17,11 @@ public class Question implements Questionable {
         this.answer = a;
     }
 
-    // Setter for price (JSON "Value")
+  
     public void setPrice(int price) {
         this.price = price;
     }
 
-    // Setter for an option (A, B, C, D)
     public void addOption(String key, String value) {
         this.options.put(key, value);
     }
@@ -52,7 +51,6 @@ public class Question implements Questionable {
         return reuse;
     }
 
-    // Mark when a question is used in the game
     public void markUsed() {
         this.reuse = true;
     }

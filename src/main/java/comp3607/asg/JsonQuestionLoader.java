@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class JsonQuestionLoader extends QuestionLoader {
 
-    // Store multiple categories
+    
     private Map<String, Category> categoryMap = new LinkedHashMap<>();
 
     public JsonQuestionLoader(String filepath) {
@@ -32,11 +32,10 @@ public class JsonQuestionLoader extends QuestionLoader {
     protected void ParseData() {
         String data = rawData;
 
-        // remove [ ]
+        
         if (data.startsWith("[")) data = data.substring(1);
         if (data.endsWith("]")) data = data.substring(0, data.length() - 1);
 
-        // split each JSON object
         String[] objects = data.split("\\},\\s*\\{");
 
         for (String obj : objects) {
@@ -44,13 +43,12 @@ public class JsonQuestionLoader extends QuestionLoader {
             if (!obj.startsWith("{")) obj = "{" + obj;
             if (!obj.endsWith("}")) obj = obj + "}";
 
-            // extract fields
             String categoryName = getJsonString(obj, "Category");
             int value = Integer.parseInt(getJsonString(obj, "Value"));
             String questionText = getJsonString(obj, "Question");
             String correct = getJsonString(obj, "CorrectAnswer");
 
-            // extract Options object
+           
             String optionsObj = getJsonObject(obj, "Options");
 
             String A = getJsonString(optionsObj, "A");
@@ -58,14 +56,14 @@ public class JsonQuestionLoader extends QuestionLoader {
             String C = getJsonString(optionsObj, "C");
             String D = getJsonString(optionsObj, "D");
 
-            // create or find category
+           
             Category category = categoryMap.get(categoryName);
             if (category == null) {
                 category = new Category(categoryName);
                 categoryMap.put(categoryName, category);
             }
 
-            // create question
+    
             Question q = new Question(questionText, correct);
             q.setPrice(value);
             q.addOption("A", A);
@@ -79,7 +77,7 @@ public class JsonQuestionLoader extends QuestionLoader {
 
     @Override
     protected Category LoadCategory() {
-        // return one category at a time
+        
         if (categoryMap.isEmpty()) return null;
 
         String firstKey = categoryMap.keySet().iterator().next();
@@ -88,7 +86,7 @@ public class JsonQuestionLoader extends QuestionLoader {
         return c;
     }
 
-    // ===== Helper methods for string/json parsing =====
+
 
     private String getJsonString(String json, String key) {
     try {
@@ -98,12 +96,12 @@ public class JsonQuestionLoader extends QuestionLoader {
 
         start = json.indexOf(":", start) + 1;
 
-        // skip spaces
+     
         while (start < json.length() && Character.isWhitespace(json.charAt(start))) {
             start++;
         }
 
-        // case 1: quoted string
+
         if (json.charAt(start) == '"') {
             start++;
             StringBuilder value = new StringBuilder();
@@ -115,7 +113,7 @@ public class JsonQuestionLoader extends QuestionLoader {
             return value.toString().trim();
         }
 
-        // case 2: number (unquoted)
+
         StringBuilder number = new StringBuilder();
         for (int i = start; i < json.length(); i++) {
             char c = json.charAt(i);

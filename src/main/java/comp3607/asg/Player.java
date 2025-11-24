@@ -1,46 +1,33 @@
 package comp3607.asg;
 
-
 public class Player {
 
     private int score;
     private String name;
-    private int money;
+    private int Id;
+    private Score Score;
     private PlayerConsole console;
 
-
-    public Player(String name) {
-        this(name, 0, 0);
-    }
-
-    public Player(String name, int startingScore, int startingMoney) {
+    public Player(String name, int Id) {
         this.name = name;
-        this.score = startingScore;
-        this.money = startingMoney;
-        this.console = new PlayerConsole(this); 
+        this.Id = Id;
+        this.Score = new Score();
+        this.console = new PlayerConsole(this);
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
-    public int getScore() {
-        return score;
+    public int getId() {
+        return this.Id;
     }
 
-    public int getMoney() {
-        return money;
+    public Score getScore() {
+        return this.Score;
     }
 
     public PlayerConsole getConsole() {
-        return console;
-    }
-
-    public void addScore(int amount) {
-        this.score += amount;
-    }
-
-    public void addMoney(int amount) {
-        this.money += amount;
+        return this.console;
     }
 }
