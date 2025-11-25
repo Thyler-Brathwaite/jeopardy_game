@@ -1,17 +1,19 @@
 package comp3607.asg;
 
-
-
-
+import java.util.Scanner;
 
 public class PlayerConsole {
 
-    private final Player player;
     
+    
+    private final Scanner scanner = new Scanner(System.in);
+    private TurnManager turnManager = new TurnManager();
+    private Board board;
 
-
-    public PlayerConsole(Player player) {
-        this.player = player;
+    public PlayerConsole(TurnManager t, Board b){
+        this.turnManager = t;
+        this.board = b;
+        
     }
 
 
@@ -19,13 +21,11 @@ public class PlayerConsole {
         if (c == null) {
             return;
         }
+        c.SetupCommand( turnManager, scanner, board);
         c.execute();
       
     }
 
   
 
-    public Player getPlayer() {
-        return player;
-    }
 }

@@ -1,29 +1,42 @@
 package comp3607.asg;
+import java.util.Scanner;
 
 public class SelectCategoryCommand implements Command {
-    private String question;
+   
+    private TurnManager turnManager = new TurnManager();
+    private Scanner scanner ;
+    private Board board;
+    
+   
+    @Override
+    public void SetupCommand(TurnManager t, Scanner s, Board b) {
+        this.turnManager = t;
+        this.scanner = s;
+        this.board = b;
 
-    public void SetQuestion(String question) {
-        this.question = question;
     }
 
 
     @Override
     public void execute() {
-        // TODO Auto-generated method stub
-        
-    }
+        System.out.println("Please select a category from the following options: ");
+        String answer = scanner.nextLine();
+        Categoryable selectedCategory = board.getCategoryByName(answer);
+        if (selectedCategory != null) {
+            System.out.println("You have selected the category: " + selectedCategory.getCategory());
+        } else {
+            System.out.println("Category not found. Please try again.");
+        }
 
-    @Override
-    public void undo() {
-        // TODO Auto-generated method stub
+        turnManager.setChosenCategory(selectedCategory);
         
-    }
+    }        
+   
 
-    @Override
-    public java.time.LocalDateTime getTimeStamp() {
-        // TODO Auto-generated method stub
-        return null;
-    }
+   
+    
+
+   
     
 }
+ 

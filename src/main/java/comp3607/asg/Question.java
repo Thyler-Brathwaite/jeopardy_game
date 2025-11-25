@@ -56,12 +56,22 @@ public class Question implements Questionable {
     }
 
     @Override
-    public String checkCorrect(String userAnswer) {
+    public boolean checkCorrect(String userAnswer) {
         if (this.answer.equalsIgnoreCase(userAnswer.trim())) {
-            return "Correct!";
+            System.out.println("Correct!");
+            return true;
         } else {
-            return "Incorrect. Correct answer: " + this.answer;
+            System.out.println("Incorrect! The correct answer was: " + this.answer);
+            return false;
         }
+    }
+
+    @Override
+    public void displayOptions() {
+        for (Map.Entry<String, String> entry : options.entrySet()) {
+            System.out.println("\n" + entry.getKey() + ": " + entry.getValue()+ "\n") ;
+        }
+
     }
       
 }

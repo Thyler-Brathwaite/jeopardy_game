@@ -1,14 +1,12 @@
 package comp3607.asg;
 
-import java.time.LocalDateTime;
+
+import java.util.Scanner;
 
 public interface Command {
 
-    
+ public void SetupCommand(TurnManager t, Scanner s, Board b); 
+
 public void execute();
-
-public void undo();
-
-public LocalDateTime getTimeStamp();
 
 }

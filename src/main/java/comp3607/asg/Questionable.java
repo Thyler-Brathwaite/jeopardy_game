@@ -10,5 +10,6 @@ public interface Questionable {
     public Map<String,String> getOptions();
     public String getAnswer();
     public boolean isUsed();
-    public String checkCorrect(String answer);
+    public boolean checkCorrect(String answer);
+    public void displayOptions();
 }

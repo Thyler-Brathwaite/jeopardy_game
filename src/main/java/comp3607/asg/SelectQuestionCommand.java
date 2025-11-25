@@ -1,26 +1,41 @@
 package comp3607.asg;
 
-public class SelectQuestionCommand implements Command {
-    private String question;
+import java.util.Scanner;
 
-    public void SetQuestion(String question) {
-        this.question = question;
+public class SelectQuestionCommand implements Command {
+    private TurnManager turnManager = new TurnManager();
+    private Scanner scanner ;
+    private Board board;
+    private String answer;
+    
+   
+    @Override
+    public void SetupCommand(TurnManager t, Scanner s, Board b) {
+        this.turnManager = t;
+        this.scanner = s;
+        this.board = b;
+
     }
 
     @Override
     public void execute() {
-        // TODO Auto-generated method stub
+        System.out.println("\n Please select a price from the chosen category : \n");
+        answer = scanner.nextLine();
+        Categoryable cat = turnManager.getChosenCategory();
+        Questionable selectedQuestion = cat.findQuestion(Integer.parseInt(answer));
+        if (selectedQuestion != null) {
+            System.out.println("\n You have selected the question for price: " + selectedQuestion.getPrice() + "\n");
+            System.out.println("\n Selected Question : " + selectedQuestion.getQuestionText() + "\n");
+            selectedQuestion.displayOptions();
+        } else {
+            System.out.println("\n Question not found for that price. Please try again.\n");
+        }
+        turnManager.setChosenQuestion(selectedQuestion);
+
+
         
     }
-    @Override
-    public void undo() {
-        // TODO Auto-generated method stub
-        
-    }
-    @Override
-    public java.time.LocalDateTime getTimeStamp() {
-        // TODO Auto-generated method stub
-        return null;
-    }
+    
+    
     
 }

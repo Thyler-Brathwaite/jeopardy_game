@@ -4,27 +4,27 @@ public class TurnSummary {
 
 private String playerName;
 private String category;
-private String questionValue;
+private int questionValue;
 private String questionText;
 private String answerGiven;
 private boolean correct;
-private String pointsEarned;
-private String runningTotal;
-private String turnNumber;
+private int pointsEarned;
+private int runningTotal;
+private int turnNumber;
 
 public TurnSummary() {
     this.playerName = "";
     this.category = "";
-    this.questionValue = "";
+    this.questionValue = 0;
     this.questionText = "";
     this.answerGiven = "";
     this.correct = false;
-    this.pointsEarned = "";
-    this.runningTotal = "";
-    this.turnNumber = "";
+    this.pointsEarned = 0;
+    this.runningTotal = 0;
+    this.turnNumber = 0;
 }
 
-public void setlayerName(String playerName) {
+public void setPlayerName(String playerName) {
     this.playerName = playerName;
 }
 
@@ -32,7 +32,7 @@ public void setCategory(String category) {
     this.category = category;
 }
 
-public void setQuestionValue(String questionValue) {
+public void setQuestionValue(int questionValue) {
     this.questionValue = questionValue;
 }
 
@@ -48,15 +48,15 @@ public void setCorrect(boolean correct) {
     this.correct = correct;
 }
 
-public void setPointsEarned(String pointsEarned) {
+public void setPointsEarned(int pointsEarned) {
     this.pointsEarned = pointsEarned;
 }
 
-public void setRunningTotal(String runningTotal) {
+public void setRunningTotal(int runningTotal) {
     this.runningTotal = runningTotal;
 }
 
-public void setTurnNumber(String turnNumber) {
+public void setTurnNumber(int turnNumber) {
     this.turnNumber = turnNumber;
 }
 
@@ -68,7 +68,7 @@ public String getCategory() {
     return category;
 }
 
-public String getQuestionValue() {
+public int getQuestionValue() {
     return questionValue;
 }
 
@@ -82,13 +82,13 @@ public String getAnswerGiven() {
 public boolean isCorrect() {
     return correct;
 }
-public String getPointsEarned() {
+public int getPointsEarned() {
     return pointsEarned;
 }
-public String getRunningTotal() {
+public int getRunningTotal() {
     return runningTotal;
 }
-public String getTurnNumber() {
+public int getTurnNumber() {
     return turnNumber;
 }
 

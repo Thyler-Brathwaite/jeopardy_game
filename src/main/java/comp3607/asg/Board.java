@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Board {
 
-    private final ArrayList<Category> categories = new ArrayList<>();
+    private final ArrayList<Categoryable> categories = new ArrayList<>();
 
     public void addCategory(Category c) {
         categories.add(c);
@@ -18,7 +18,7 @@ public class Board {
 
         System.out.println("\n============ JEOPARDY BOARD ============\n");
 
-        for (Category c : categories) {
+        for (Categoryable c : categories) {
             System.out.printf("| %-25s", c.getCategory());
         }
         System.out.println("|");
@@ -29,7 +29,7 @@ public class Board {
 
 
         for (int row = 0; row < numRows; row++) {
-            for (Category c : categories) {
+            for (Categoryable c : categories) {
                 Question q = c.getQuestions().get(row);
 
              
@@ -47,7 +47,7 @@ public class Board {
 
 
     public boolean allQuestionsAnswered() {
-        for (Category c : categories) {
+        for (Categoryable c : categories) {
             for (Question q : c.getQuestions()) {
                 if (!q.isUsed()) {
                     return false;
@@ -55,5 +55,18 @@ public class Board {
             }
         }
         return true;
+    }
+
+    public ArrayList<Categoryable> getCategories() {
+        return new ArrayList<>(categories);
+    }
+    
+    public Categoryable getCategoryByName(String name) {
+        for (Categoryable c : categories) {
+            if (c.getCategory().equalsIgnoreCase(name)) {
+                return c;
+            }
+        }
+        return null;
     }
 }

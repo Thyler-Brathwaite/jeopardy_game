@@ -1,27 +1,38 @@
 package comp3607.asg;
 
+import java.util.Scanner;
+
 public class AnswerCommand implements Command {
+
+   private TurnManager turnManager = new TurnManager();
+    private Scanner scanner ;
+    private Board board;
     
-    private String answer;
+   
+    @Override
+    public void SetupCommand(TurnManager t, Scanner s, Board b) {
+        this.turnManager = t;
+        this.scanner = s;
+        this.board = b;
 
-    public void SetAnswer(String answer) {
-        this.answer = answer;
     }
-
     @Override
     public void execute() {
-        // TODO Auto-generated method stub
+        System.out.println("Please provide your answer: ");
+        String answer = scanner.nextLine();
+        Questionable chosenQuestion = turnManager.getChosenQuestion();
+        turnManager.setChosenAnswer(answer);
+        boolean correct = chosenQuestion.checkCorrect(answer);
+        if(correct) {
+            turnManager.getCurrentPlayer().getScore().addScore(chosenQuestion.getPrice());
+        } else {
+            turnManager.getCurrentPlayer().getScore().loseScore(chosenQuestion.getPrice());
+        }
+        
+
         
     }
-    @Override
-    public void undo() {
-        // TODO Auto-generated method stub
-        
-    }
-    @Override
-    public java.time.LocalDateTime getTimeStamp() {
-        // TODO Auto-generated method stub
-        return null;
-    }
+    
+    
 
 }

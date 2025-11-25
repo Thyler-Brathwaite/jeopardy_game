@@ -35,10 +35,21 @@ public class Category implements Categoryable {
         System.out.println("No question found for that price.");
         return null;
     }
-    
+
     @Override
     public void removeQuestion(Question q){
         this.questions.remove(q);
     }
+
+    @Override
+    public void displayQuestionsPrices(){
+        System.out.println("Questions for category: " + this.category);
+        for(Question q : questions){
+            System.out.println("Price: " + q.getPrice());
+        }
+    }
+
+    
+    
 
 }
