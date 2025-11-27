@@ -3,7 +3,6 @@
 2025-11-27 01:48:59,3,ashram,Arrays,200,What is the index of the first element in a C++ array?,D,false,0,0
 2025-11-27 02:02:23,1,thyler,Control Structures,100,Which statement is used to make a decision?,if,false,0,0
 2025-11-27 02:03:03,2,frank,Control Structures,100,Which statement is used to make a decision?,A,true,100,100
-<<<<<<< HEAD
 2025-11-27 03:25:53,1,thyler,Arrays,200,What is the index of the first element in a C++ array?,B,true,200,200
 2025-11-27 03:37:55,1,thyler,Arrays,200,What is the index of the first element in a C++ array?,b,true,200,200
 2025-11-27 03:41:29,1,1,Arrays,200,What is the index of the first element in a C++ array?,bb,false,0,0
@@ -39,6 +38,3 @@
 2025-11-27 05:10:56,23,1,Variables & Data Types,300,What is the value of x after int x = 5/2;?,b,false,100,500
 2025-11-27 05:11:11,24,2,Variables & Data Types,400,Which of the following is a floating-point literal?,a,false,500,100
 2025-11-27 05:11:30,25,1,Variables & Data Types,500,Which operator is used to get the remainder?,b,true,500,1000
-=======
-2025-11-27 03:33:56,1,thyler,Arrays,200,What is the index of the first element in a C++ array?,B,true,200,200
->>>>>>> d24534048c945e2d4ba06da3376186cd41d1ddbe
