@@ -1,41 +1,73 @@
 package comp3607.asg;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
 
-    private List<Player> players;
-    private Board board;
-    /* private EventLog log;
+    private final List<Player> players;
+    private final Board board;
+    private final TurnManager turnManager;
+    private final EventLog eventLog;
+    private boolean running;
 
-    public Game() {
+    public Game(Board board) {
         this.players = new ArrayList<>();
-        this.board = new Board();
-        this.log = new EventLog();
+        this.board = board;
+        this.turnManager = new TurnManager();
+        this.eventLog = new EventLog();
+        this.running = false;
     }
 
     public void addPlayer(Player p) {
         players.add(p);
+        System.out.println("Player added: " + p.getName());
     }
 
-    public void setupGame() {
-        System.out.println("Setting up game...");
-        log.add("Game setup complete.");
+    public void start() {
+
+        if (players.isEmpty()) {
+            System.out.println("No players added. Cannot start game.");
+            return;
+        }
+
+        running = true;
+        System.out.println("\n=== GAME START ===\n");
+
+        int currentIndex = 0;
+
+        while (running && !board.allQuestionsAnswered()) {
+
+            Player currentPlayer = players.get(currentIndex);
+
+            System.out.println("\n--------------------------------");
+            System.out.println("TURN FOR: " + currentPlayer.getName());
+            System.out.println("--------------------------------");
+
+            TurnSummary summary = turnManager.PlayTurn(currentPlayer, board);
+
+            // Log CSV line
+            eventLog.LogEvent("eventlog.csv", summary);
+
+            // Move to next player
+            currentIndex = (currentIndex + 1) % players.size();
+        }
+
+        end();
     }
 
-    public void startGame() {
-        System.out.println("Game started.");
-        log.add("Game started.");
-    }
+    public void end() {
+        running = false;
 
-    public void playTurn() {
-        System.out.println("Playing a turn...");
-        log.add("Turn played.");
-    }
+        System.out.println("\n=== GAME OVER ===\n");
 
-    public void endGame() {
-        System.out.println("Game ended.");
-        log.add("Game ended.");
-    } */
+        System.out.println("Final Scores:");
+        players.sort((a, b) -> b.getScore().getAmt() - a.getScore().getAmt());
+        for (Player p : players) {
+            System.out.println(p.getName() + ": " + p.getScore().getAmt());
+        }
+
+        System.out.println("\nEvent log saved to eventlog.csv");
+        System.out.println("Thank you for playing!");
+    }
 }
-

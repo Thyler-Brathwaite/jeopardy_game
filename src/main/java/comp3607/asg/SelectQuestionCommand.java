@@ -3,7 +3,7 @@ package comp3607.asg;
 import java.util.Scanner;
 
 public class SelectQuestionCommand implements Command {
-    private TurnManager turnManager = new TurnManager();
+    private TurnManager turnManager;
     private Scanner scanner ;
     private Board board;
     private String answer;
