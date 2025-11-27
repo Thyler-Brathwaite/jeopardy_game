@@ -46,10 +46,10 @@ public class Game {
 
             TurnSummary summary = turnManager.PlayTurn(currentPlayer, board);
 
-            // Log CSV line
+         
             eventLog.LogEvent("eventlog.csv", summary);
 
-            // Move to next player
+        
             currentIndex = (currentIndex + 1) % players.size();
         }
 
