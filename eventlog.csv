@@ -38,3 +38,4 @@
 2025-11-27 05:10:56,23,1,Variables & Data Types,300,What is the value of x after int x = 5/2;?,b,false,100,500
 2025-11-27 05:11:11,24,2,Variables & Data Types,400,Which of the following is a floating-point literal?,a,false,500,100
 2025-11-27 05:11:30,25,1,Variables & Data Types,500,Which operator is used to get the remainder?,b,true,500,1000
+2025-11-27 05:19:25,1,1,Arrays,200,What is the index of the first element in a C++ array?,b,true,200,200

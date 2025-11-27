@@ -5,10 +5,14 @@ import java.util.Map;
 
 public class Report implements Observer {
 
-    private ArrayList<TurnSummary> turnSummaries = new ArrayList<>();
+    private ArrayList<TurnSummary> turnSummaries;
     private Map<String, Integer> finalScores;
 
-    public Report() {}
+    public Report() {
+        
+        this.turnSummaries = new ArrayList<>();
+
+    }
 
     @Override
     public void notifyUpdate() {

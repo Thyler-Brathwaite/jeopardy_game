@@ -29,7 +29,7 @@ public class Game {
         players.add(p);
         leaderboard.addPlayer(p);
 
-        // Report listens to leaderboard for updates
+    
         leaderboard.registerObserver(report);
 
         System.out.println("Player added: " + p.getName());
@@ -57,17 +57,17 @@ public class Game {
 
             TurnSummary summary = turnManager.PlayTurn(currentPlayer, board);
 
-            // Save turn summary for report
+           
             report.addTurnSummary(summary);
 
-            // Log CSV line
+          
             eventLog.LogEvent("eventlog.csv", summary);
 
-            // Update leaderboard
+            
             leaderboard.scoreChanged();
             displayLeaderboard();
 
-            // Next player
+           
             currentIndex = (currentIndex + 1) % players.size();
         }
 
@@ -85,10 +85,9 @@ public class Game {
             System.out.println(p.getName() + ": " + p.getScore().getAmt());
         }
 
-        // Build final scores map for report
+       
         report.setFinalScores(buildFinalScores());
 
-        // Generate PDF report
         ReportLoader loader = new PdfReportLoader();
         report.generateReport("game_report.pdf", loader);
 

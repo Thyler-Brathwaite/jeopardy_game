@@ -37,7 +37,7 @@ public class Leaderboard implements Subject {
             return;
         }
 
-        // Sort by score descending
+       
         rankings.sort((a, b) ->
             Integer.compare(b.getScore().getAmt(), a.getScore().getAmt())
         );
