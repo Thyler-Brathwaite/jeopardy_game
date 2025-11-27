@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class SelectCategoryCommand implements Command {
    
-    private TurnManager turnManager = new TurnManager();
+    private TurnManager turnManager;
     private Scanner scanner ;
     private Board board;
     
