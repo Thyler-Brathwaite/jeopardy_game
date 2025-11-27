@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class AnswerCommand implements Command {
 
-    private TurnManager turnManager;  
+    private TurnManager turnManager;
     private Scanner scanner;
     private Board board;
 
@@ -16,7 +16,7 @@ public class AnswerCommand implements Command {
     }
 
     @Override
-    public void execute() {
+    public boolean execute() {
         System.out.println("Please provide your answer: ");
         String answer = scanner.nextLine();
 
@@ -31,5 +31,9 @@ public class AnswerCommand implements Command {
         } else {
             turnManager.getCurrentPlayer().getScore().loseScore(chosenQuestion.getPrice());
         }
+
+        chosenQuestion.markUsed();
+
+        return correct;
     }
 }

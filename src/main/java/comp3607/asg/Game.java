@@ -1,7 +1,9 @@
 package comp3607.asg;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Game {
 
@@ -9,7 +11,9 @@ public class Game {
     private final Board board;
     private final TurnManager turnManager;
     private final EventLog eventLog;
+    private final Report report;
     private boolean running;
+    private Leaderboard leaderboard;
 
     public Game(Board board) {
         this.players = new ArrayList<>();
@@ -17,10 +21,17 @@ public class Game {
         this.turnManager = new TurnManager();
         this.eventLog = new EventLog();
         this.running = false;
+        this.leaderboard = new Leaderboard();
+        this.report = new Report();
     }
 
     public void addPlayer(Player p) {
         players.add(p);
+        leaderboard.addPlayer(p);
+
+        // Report listens to leaderboard for updates
+        leaderboard.registerObserver(report);
+
         System.out.println("Player added: " + p.getName());
     }
 
@@ -46,10 +57,17 @@ public class Game {
 
             TurnSummary summary = turnManager.PlayTurn(currentPlayer, board);
 
+            // Save turn summary for report
+            report.addTurnSummary(summary);
+
             // Log CSV line
             eventLog.LogEvent("eventlog.csv", summary);
 
-            // Move to next player
+            // Update leaderboard
+            leaderboard.scoreChanged();
+            displayLeaderboard();
+
+            // Next player
             currentIndex = (currentIndex + 1) % players.size();
         }
 
@@ -67,7 +85,38 @@ public class Game {
             System.out.println(p.getName() + ": " + p.getScore().getAmt());
         }
 
+        // Build final scores map for report
+        report.setFinalScores(buildFinalScores());
+
+        // Generate PDF report
+        ReportLoader loader = new PdfReportLoader();
+        report.generateReport("game_report.pdf", loader);
+
         System.out.println("\nEvent log saved to eventlog.csv");
+        System.out.println("PDF Report saved to game_report.pdf");
         System.out.println("Thank you for playing!");
+    }
+
+    private Map<String, Integer> buildFinalScores() {
+        Map<String, Integer> m = new HashMap<>();
+        for (Player p : players) {
+            m.put(p.getName(), p.getScore().getAmt());
+        }
+        return m;
+    }
+
+    public void displayLeaderboard() {
+
+        System.out.println("\n===== CURRENT LEADERBOARD =====");
+
+        ArrayList<Player> ranks = leaderboard.getRankings();
+
+        int position = 1;
+        for (Player p : ranks) {
+            System.out.println(position + ". " + p.getName() + " - " + p.getScore().getAmt());
+            position++;
+        }
+
+        System.out.println("================================\n");
     }
 }

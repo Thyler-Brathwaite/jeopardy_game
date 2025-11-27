@@ -26,15 +26,18 @@ public class Category implements Categoryable {
     }
 
     @Override
-    public Question findQuestion(int price){
-        for(Question q : questions){
-            if(q.getPrice() == price){
-                return q;
-            }
+     public Question findQuestion(int price) {
+        
+       for (Question q : questions) {
+        if (q.getPrice() == price && !q.isUsed()) {
+            return q;
         }
-        System.out.println("No question found for that price.");
-        return null;
     }
+    
+    System.out.println("No *available* question found for that price.");
+    return null;
+}
+
 
     @Override
     public void removeQuestion(Question q){

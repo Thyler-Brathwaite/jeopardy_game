@@ -13,7 +13,9 @@ public class Leaderboard implements Subject {
 
     @Override
     public void registerObserver(Observer o) {
-        observers.add(o);
+        if (!observers.contains(o)) {
+            observers.add(o);
+        }
     }
 
     @Override
@@ -28,29 +30,37 @@ public class Leaderboard implements Subject {
         }
     }
 
-    public void update() {
-        // Some logic to update rankings (sorting etc.)
-        //RankPlayers();
+    public void updateLeaderboard() {
 
-        // After rankings change → notify all observers
+        if (rankings.isEmpty()) {
+            rankOne = null;
+            return;
+        }
+
+        // Sort by score descending
+        rankings.sort((a, b) ->
+            Integer.compare(b.getScore().getAmt(), a.getScore().getAmt())
+        );
+
+        rankOne = rankings.get(0);
+
         notifyObservers();
     }
 
-   /*  public ArrayList<Player> RankPlayers() {
-        // Simple example: sort by score descending
-        rankings.sort((a, b) -> b.getScore() - a.getScore());
-        if (!rankings.isEmpty()) {
-            rankOne = rankings.get(0);
-        }
+    public void scoreChanged() {
+        updateLeaderboard();
+    }
+
+    public ArrayList<Player> getRankings() {
         return rankings;
     }
-  */
+
     public Player getRankOne() {
         return rankOne;
     }
 
-    // Optional helper to add players
     public void addPlayer(Player p) {
         rankings.add(p);
+        updateLeaderboard();
     }
 }

@@ -5,19 +5,18 @@ import java.util.Scanner;
 public class PlayerConsole {
 
     private final Scanner scanner = new Scanner(System.in);
-    private TurnManager turnManager;   // <-- FIXED (do NOT instantiate here)
+    private TurnManager turnManager;
     private Board board;
 
-    public PlayerConsole(TurnManager t, Board b){
+    public PlayerConsole(TurnManager t, Board b) {
         this.turnManager = t;
         this.board = b;
     }
 
-    public void execute(Command c) {
-        if (c == null) {
-            return;
-        }
+    public boolean execute(Command c) {
+        if (c == null) return false;
+
         c.SetupCommand(turnManager, scanner, board);
-        c.execute();
+        return c.execute();
     }
 }

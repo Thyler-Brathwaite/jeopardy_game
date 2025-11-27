@@ -7,6 +7,6 @@ public interface Command {
 
  public void SetupCommand(TurnManager t, Scanner s, Board b); 
 
-public void execute();
+public boolean execute();
 
 }

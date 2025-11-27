@@ -12,4 +12,5 @@ public interface Questionable {
     public boolean isUsed();
     public boolean checkCorrect(String answer);
     public void displayOptions();
+    public void markUsed();
 }

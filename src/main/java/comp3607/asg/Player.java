@@ -3,14 +3,13 @@ package comp3607.asg;
 public class Player {
 
     private final String name;
-    private final int Id;
-    private final Score Score;
-   
+    private final int id;
+    private final Score score;
 
-    public Player(String name, int Id) {
+    public Player(String name, int id) {
         this.name = name;
-        this.Id = Id;
-        this.Score = new Score();
+        this.id = id;
+        this.score = new Score();
     }
 
     public String getName() {
@@ -18,11 +17,10 @@ public class Player {
     }
 
     public int getId() {
-        return this.Id;
+        return this.id;
     }
 
     public Score getScore() {
-        return this.Score;
+        return this.score;
     }
-
 }
