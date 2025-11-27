@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class PlayerConsole {
 
     private final Scanner scanner = new Scanner(System.in);
-    private TurnManager turnManager;   // <-- FIXED (do NOT instantiate here)
+    private TurnManager turnManager;   
     private Board board;
 
     public PlayerConsole(TurnManager t, Board b){
