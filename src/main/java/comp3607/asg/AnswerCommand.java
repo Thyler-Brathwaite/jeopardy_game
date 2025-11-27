@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class AnswerCommand implements Command {
 
-    private TurnManager turnManager;   // <-- FIXED (NO instantiation)
+    private TurnManager turnManager;  
     private Scanner scanner;
     private Board board;
 

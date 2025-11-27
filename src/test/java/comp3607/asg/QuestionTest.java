@@ -1,8 +1,9 @@
 package comp3607.asg;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 public class QuestionTest {
 
@@ -48,8 +49,5 @@ public class QuestionTest {
                 "checkCorrect should return false for an incorrect answer.");
     }
 }
-<<<<<<< HEAD
 
 
-=======
->>>>>>> db52f3e55f281b84a27969a0fbc16a9d1fe56613
