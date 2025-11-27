@@ -57,6 +57,7 @@ public class Game {
 
             TurnSummary summary = turnManager.PlayTurn(currentPlayer, board);
 
+<<<<<<< HEAD
             // Save turn summary for report
             report.addTurnSummary(summary);
 
@@ -68,6 +69,12 @@ public class Game {
             displayLeaderboard();
 
             // Next player
+=======
+         
+            eventLog.LogEvent("eventlog.csv", summary);
+
+        
+>>>>>>> d24534048c945e2d4ba06da3376186cd41d1ddbe
             currentIndex = (currentIndex + 1) % players.size();
         }
 

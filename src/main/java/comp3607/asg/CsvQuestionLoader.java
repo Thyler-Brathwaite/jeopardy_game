@@ -31,7 +31,7 @@ public class CsvQuestionLoader extends QuestionLoader {
     protected void ParseData() {
         String[] lines = rawData.split("\n");
 
-        for (int i = 1; i < lines.length; i++) { // skip header
+        for (int i = 1; i < lines.length; i++) { 
             String[] parts = lines[i].split(",");
             questions.add(new Question(parts[0], parts[1]));
         }
