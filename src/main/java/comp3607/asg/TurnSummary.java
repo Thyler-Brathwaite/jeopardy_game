@@ -92,4 +92,19 @@ public int getTurnNumber() {
     return turnNumber;
 }
 
+@Override
+public String toString() {
+    return "TurnSummary {" +
+            "turn=" + turnNumber +
+            ", player='" + playerName + '\'' +
+            ", category='" + category + '\'' +
+            ", question='" + questionText + '\'' +
+            ", value=" + questionValue +
+            ", answerGiven='" + answerGiven + '\'' +
+            ", correct=" + correct +
+            ", pointsEarned=" + pointsEarned +
+            ", runningTotal=" + runningTotal +
+            '}';
+}
+
 }

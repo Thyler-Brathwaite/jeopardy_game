@@ -2,33 +2,32 @@
 [PDF TITLE] Game Report
 --------------------------------------------
 [PDF TURN DETAILS]
-• comp3607.asg.TurnSummary@2f92e0f4
-• comp3607.asg.TurnSummary@28a418fc
-• comp3607.asg.TurnSummary@5305068a
-• comp3607.asg.TurnSummary@1f32e575
-• comp3607.asg.TurnSummary@279f2327
-• comp3607.asg.TurnSummary@2ff4acd0
-• comp3607.asg.TurnSummary@54bedef2
-• comp3607.asg.TurnSummary@5caf905d
-• comp3607.asg.TurnSummary@27716f4
-• comp3607.asg.TurnSummary@8efb846
-• comp3607.asg.TurnSummary@2a84aee7
-• comp3607.asg.TurnSummary@a09ee92
-• comp3607.asg.TurnSummary@30f39991
-• comp3607.asg.TurnSummary@452b3a41
-• comp3607.asg.TurnSummary@4a574795
-• comp3607.asg.TurnSummary@f6f4d33
-• comp3607.asg.TurnSummary@23fc625e
-• comp3607.asg.TurnSummary@3f99bd52
-• comp3607.asg.TurnSummary@4f023edb
-• comp3607.asg.TurnSummary@3a71f4dd
-• comp3607.asg.TurnSummary@7adf9f5f
-• comp3607.asg.TurnSummary@85ede7b
-• comp3607.asg.TurnSummary@5674cd4d
-• comp3607.asg.TurnSummary@63961c42
-• comp3607.asg.TurnSummary@65b54208
+• TurnSummary {turn=1, player='2', category='File Handling', question='Which header file is used for file I/O?', value=100, answerGiven='a', correct=true, pointsEarned=100, runningTotal=100}
+• TurnSummary {turn=2, player='2', category='File Handling', question='Which stream is used to write to a file?', value=200, answerGiven='File Handling', correct=false, pointsEarned=100, runningTotal=0}
+• TurnSummary {turn=3, player='2', category='File Handling', question='Which function closes a file?', value=400, answerGiven='File Handling', correct=false, pointsEarned=100, runningTotal=0}
+• TurnSummary {turn=4, player='2', category='File Handling', question='What happens if a file fails to open?', value=500, answerGiven='File Handling', correct=false, pointsEarned=100, runningTotal=0}
+• TurnSummary {turn=5, player='2', category='File Handling', question='Which method opens a file in append mode?', value=300, answerGiven='File Handling', correct=false, pointsEarned=100, runningTotal=0}
+• TurnSummary {turn=6, player='2', category='Arrays', question='Which declares an array of 5 integers?', value=100, answerGiven='', correct=false, pointsEarned=100, runningTotal=0}
+• TurnSummary {turn=7, player='2', category='Arrays', question='What is the index of the first element in a C++ array?', value=200, answerGiven='', correct=false, pointsEarned=100, runningTotal=0}
+• TurnSummary {turn=8, player='2', category='Arrays', question='Which loop is best for iterating a fixed-size array?', value=300, answerGiven='', correct=false, pointsEarned=100, runningTotal=0}
+• TurnSummary {turn=9, player='2', category='Arrays', question='What happens if you access out-of-range index?', value=400, answerGiven='', correct=false, pointsEarned=100, runningTotal=0}
+• TurnSummary {turn=10, player='2', category='Arrays', question='How many elements in int arr[3][4];?', value=500, answerGiven='', correct=false, pointsEarned=100, runningTotal=0}
+• TurnSummary {turn=11, player='2', category='Functions', question='Which keyword is used to define a function returning no value?', value=100, answerGiven='', correct=false, pointsEarned=100, runningTotal=0}
+• TurnSummary {turn=12, player='2', category='Functions', question='What is the purpose of a function parameter?', value=200, answerGiven='', correct=false, pointsEarned=100, runningTotal=0}
+• TurnSummary {turn=13, player='2', category='Functions', question='What is the return type of int add(int a, int b)?', value=300, answerGiven='', correct=false, pointsEarned=100, runningTotal=0}
+• TurnSummary {turn=14, player='2', category='Functions', question='Which statement exits a function and sends a value back?', value=400, answerGiven='', correct=false, pointsEarned=100, runningTotal=0}
+• TurnSummary {turn=15, player='2', category='Functions', question='If a function is not declared before use, what may happen?', value=500, answerGiven='', correct=false, pointsEarned=100, runningTotal=0}
+• TurnSummary {turn=16, player='2', category='Control Structures', question='Which statement is used to make a decision?', value=100, answerGiven='', correct=false, pointsEarned=100, runningTotal=0}
+• TurnSummary {turn=17, player='2', category='Control Structures', question='What is the output of: if (5 > 10) cout << 'Hi'; else cout << 'Bye';', value=200, answerGiven='', correct=false, pointsEarned=100, runningTotal=0}
+• TurnSummary {turn=18, player='2', category='Control Structures', question='Which loop always executes at least once?', value=300, answerGiven='', correct=false, pointsEarned=100, runningTotal=0}
+• TurnSummary {turn=19, player='2', category='Control Structures', question='Which keyword exits a loop immediately?', value=400, answerGiven='', correct=false, pointsEarned=100, runningTotal=0}
+• TurnSummary {turn=20, player='2', category='Control Structures', question='How many times will the loop for(int i=0;i<3;i++) run?', value=500, answerGiven='', correct=false, pointsEarned=100, runningTotal=0}
+• TurnSummary {turn=21, player='2', category='Variables & Data Types', question='Which of the following declares an integer variable in C++?', value=100, answerGiven='', correct=false, pointsEarned=100, runningTotal=0}
+• TurnSummary {turn=22, player='2', category='Variables & Data Types', question='Which data type is used to store a single character?', value=200, answerGiven='', correct=false, pointsEarned=100, runningTotal=0}
+• TurnSummary {turn=23, player='2', category='Variables & Data Types', question='What is the value of x after int x = 5/2;?', value=300, answerGiven='', correct=false, pointsEarned=100, runningTotal=0}
+• TurnSummary {turn=24, player='2', category='Variables & Data Types', question='Which of the following is a floating-point literal?', value=400, answerGiven='', correct=false, pointsEarned=100, runningTotal=0}
+• TurnSummary {turn=25, player='2', category='Variables & Data Types', question='Which operator is used to get the remainder?', value=500, answerGiven='', correct=false, pointsEarned=100, runningTotal=0}
 --------------------------------------------
 [PDF FINAL SCORES]
-• 1: 1000
-• 2: 100
+• 2: 0
 ----- PDF REPORT END -----
